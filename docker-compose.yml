@@ -1,0 +1,30 @@
+version: '3'
+services:
+  frontend:
+    build:
+      context: ./feedback-app-frontend  # Pfad zu deinem Frontend-Projekt
+      dockerfile: Dockerfile  # Stelle sicher, dass der Dockerfile-Name richtig ist
+    ports:
+      - '3000:80'  # Frontend auf Port 3000 erreichbar
+    depends_on:
+      - backend  # Warte, bis das Backend gestartet ist
+
+  backend:
+    build:
+      context: ./feedback-app  # Pfad zu deinem Backend-Projekt
+      dockerfile: Dockerfile  # Dockerfile für das Backend
+    environment:
+      - DATABASE_URL=postgres://user:password@db:5432/feedback  # Verweis auf die Datenbank
+    ports:
+      - '5000:5000'  # Backend auf Port 5000 erreichbar
+    depends_on:
+      - db  # Warte, bis die Datenbank gestartet ist
+
+  db:
+    image: postgres:13  # Verwende ein Postgres-Image
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: feedback
+    ports:
+      - '5432:5432'  # Datenbank auf Port 5432 erreichbar
