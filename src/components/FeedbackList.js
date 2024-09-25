@@ -1,7 +1,7 @@
 import React from "react";
 import FeedbackItem from "./FeedbackItem";
 
-const FeedbackList = ({feedbacks}) => {
+const FeedbackList = ({ feedbacks, onFeedbackDeleted }) => {
 
     return(
         <div>
@@ -13,6 +13,7 @@ const FeedbackList = ({feedbacks}) => {
                     <FeedbackItem 
                         key={feedback.id}
                         feedback={feedback}
+                        onDeleted={onFeedbackDeleted}
                     />
                 ))
             )}

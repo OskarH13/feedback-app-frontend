@@ -1,29 +1,25 @@
-# Verwende ein Node-Image als Basis
-FROM node:16-alpine AS build
+FROM node:22-bookworm-slim AS buildstage
 
-# Setze das Arbeitsverzeichnis
-WORKDIR /app
+ARG REACT_APP_BACKEND_HOST
+ARG REACT_APP_BACKEND_PORT
 
-# Kopiere package.json und package-lock.json
-COPY package*.json ./
+ENV REACT_APP_BACKEND_HOST=$REACT_APP_BACKEND_HOST
+ENV REACT_APP_BACKEND_PORT=$REACT_APP_BACKEND_PORT
 
-# Installiere Abhängigkeiten
+WORKDIR /usr/src/app
+
+COPY package*.json .
+
 RUN npm install
 
-# Kopiere den Rest des Projekts
 COPY . .
 
-# Baue die Anwendung
 RUN npm run build
 
-# Verwende ein NGINX-Image für das Deployment
-FROM nginx:alpine
+FROM nginx:1.27-bookworm
 
-# Kopiere den Build in das NGINX-Verzeichnis
-COPY --from=build /app/build /usr/share/nginx/html
+COPY --from=buildstage /usr/src/app/build /usr/share/nginx/html
 
-# Exponiere den Standardport
 EXPOSE 80
 
-# Starte NGINX
 CMD ["nginx", "-g", "daemon off;"]

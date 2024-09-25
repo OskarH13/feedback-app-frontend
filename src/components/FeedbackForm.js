@@ -1,15 +1,16 @@
 import React, { useState } from 'react';
 import { createFeedback } from '../api/feedbackApi';
 
-const FeedbackForm = () => {
+const FeedbackForm = ({ onFeedbackAdded }) => {
     const [title, setTitle] = useState('');
     const [text, setText] = useState(''); 
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        createFeedback({title, text});
+        await createFeedback({ title, text });
         setTitle('');
         setText('');
+        onFeedbackAdded();
     };
 
     return (
