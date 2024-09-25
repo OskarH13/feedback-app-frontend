@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: feedback-frontend
+  labels:
+    app: feedback-frontend
+spec:
+  replicas: 3  # Anzahl der Replikate (Pods)
+  selector:
+    matchLabels:
+      app: feedback-frontend
+  template:
+    metadata:
+      labels:
+        app: feedback-frontend
+    spec:
+      containers:
+        - name: frontend
+          image: feedback-frontend:latest  # Docker-Image, das du verwenden möchtest
+          ports:
+            - containerPort: 80  # Der Container läuft auf Port 80
+          env:
+            - name: REACT_APP_BACKEND_URL
+              value: "http://feedback-backend:5000"  # Backend-Service-URL
