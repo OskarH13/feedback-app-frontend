@@ -38,9 +38,6 @@ services:
     build:
       context: ./
       dockerfile: Dockerfile
-      args:
-        - REACT_APP_BACKEND_HOST=localhost
-        - REACT_APP_BACKEND_PORT=3030
     container_name: feedback-app-frontend
     networks:
       - feedback-app-nw
@@ -48,6 +45,8 @@ services:
       - "80:80"
     depends_on:
       - feedback_app
+    volumes:
+      - ./nginx_default.conf:/etc/nginx/conf.d/default.conf
 
 networks:
   feedback-app-nw:
