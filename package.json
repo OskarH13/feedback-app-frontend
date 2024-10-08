@@ -1,38 +1,38 @@
 {
-  "name": "feedback-app-frontend",
-  "version": "0.1.0",
-  "private": true,
-  "dependencies": {
-    "@testing-library/jest-dom": "^5.17.0",
-    "@testing-library/react": "^13.4.0",
-    "@testing-library/user-event": "^13.5.0",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1",
-    "react-scripts": "5.0.1",
-    "web-vitals": "^2.1.4"
+  "name": "feedback-app-frontend", // Name der Frontend-Anwendung
+  "version": "0.1.0", // Version der Anwendung
+  "private": true, // Gibt an, dass die Anwendung privat ist und nicht veröffentlicht werden sollte
+  "dependencies": { // Produktionsabhängigkeiten
+    "@testing-library/jest-dom": "^5.17.0", // Erweiterungen für Jest-DOM-Tests
+    "@testing-library/react": "^13.4.0", // Testing-Bibliothek für React-Anwendungen
+    "@testing-library/user-event": "^13.5.0", // Simulation von Benutzerinteraktionen in Tests
+    "react": "^18.3.1", // Hauptbibliothek für die Benutzeroberfläche
+    "react-dom": "^18.3.1", // DOM-spezifische Methoden für React
+    "react-scripts": "5.0.1", // Skripte und Konfigurationen für React-Anwendungen
+    "web-vitals": "^2.1.4" // Hilfsbibliothek zur Messung von Leistungsmetriken
   },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+  "scripts": { // Definiert Skripte zur Ausführung von Befehlen
+    "start": "react-scripts start", // Startet die Anwendung im Entwicklungsmodus
+    "build": "react-scripts build", // Baut die Anwendung für die Produktion
+    "test": "react-scripts test", // Führt Tests für die Anwendung aus
+    "eject": "react-scripts eject" // Ejectet die Konfiguration, um sie manuell anzupassen
   },
-  "eslintConfig": {
+  "eslintConfig": { // Konfiguration für ESLint
     "extends": [
-      "react-app",
-      "react-app/jest"
+      "react-app", // Basisregeln für React-Anwendungen
+      "react-app/jest" // Regeln für Jest-Tests in React-Anwendungen
     ]
   },
-  "browserslist": {
+  "browserslist": { // Konfiguration für unterstützte Browser
     "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
+      ">0.2%", // Unterstützt Browser mit mehr als 0,2% Marktanteil
+      "not dead", // Schließt Browser aus, die nicht mehr unterstützt werden
+      "not op_mini all" // Schließt Opera Mini aus
     ],
     "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
+      "last 1 chrome version", // Unterstützt die letzte Version von Chrome
+      "last 1 firefox version", // Unterstützt die letzte Version von Firefox
+      "last 1 safari version" // Unterstützt die letzte Version von Safari
     ]
   }
 }
