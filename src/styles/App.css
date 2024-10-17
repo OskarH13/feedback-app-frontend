@@ -1,125 +1,152 @@
-/* src/styles/App.css */
+/* Add navbar styles */
+.navbar {
+    display: flex;
+    justify-content: space-around;
+    background-color: #333;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+    font-size: 24px; /* Increased font size */
+    font-weight: 600; /* Semibold font weight */
+    font-family: 'Courier New', Courier, monospace;
+    text-transform: lowercase;
+    transition: color 0.3s ease;
+}
+
+.navbar a:hover {
+    color: #ff4081;
+}
+
+/* Rest of the styles remain the same */
+
 body {
     background-color: #2c2c2c;
     color: white;
-    font-family: 'Courier New', Courier, monospace; /* Monospace font */
+    font-family: 'Courier New', Courier, monospace;
     margin: 0;
     padding: 0;
 }
 
 .container {
     width: 100%;
-    max-width: 900px; /* Form container width */
-    margin: 40px auto; /* Center the container horizontally and add margin */
+    max-width: 900px;
+    margin: 40px auto;
     padding: 40px;
 }
 
 h1, h2, h3 {
-    font-weight: 600; /* Semi-bold */
-    text-transform: lowercase; /* Make all titles lowercase */
-    text-align: center; /* Center all headings */
-    font-family: 'Courier New', Courier, monospace; /* Monospace font for headings */
-    text-shadow: 0px 0px 3px #e91e63; /* 1px Barbie Pink shadow */
+    font-weight: 600;
+    text-transform: lowercase;
+    text-align: center;
+    font-family: 'Courier New', Courier, monospace;
+    text-shadow: 0px 0px 3px #e91e63;
 }
 
 h1 {
-    font-size: 67.2px; /* 20% larger than previous 56px */
-    color: #e91e63; /* Barbie pink */
+    font-size: 67.2px;
+    color: #e91e63;
     margin-bottom: 40px;
 }
 
 h2 {
-    font-size: 33.6px; /* 20% larger than previous 28px */
+    font-size: 33.6px;
     color: white;
-    margin-bottom: 20px; /* Add some space below the form title */
+    margin-bottom: 20px;
 }
 
 button {
-    background-color: #e91e63; /* Barbie pink */
+    background-color: #e91e63;
     color: white;
     border: none;
     padding: 12px 24px;
     cursor: pointer;
     font-size: 18px;
-    font-weight: bold; /* Bold text inside buttons */
+    font-weight: bold;
     margin-top: 15px;
-    border-radius: 8px; /* Rounded corners */
-    text-transform: lowercase; /* Make button text lowercase */
-    transition: background-color 0.3s ease; /* Smooth transition */
-    font-family: 'Courier New', Courier, monospace; /* Monospace font for button text */
-    display: block; /* Center button */
-    margin-left: auto; /* Center button */
-    margin-right: auto; /* Center button */
+    border-radius: 8px;
+    text-transform: lowercase;
+    transition: background-color 0.3s ease;
+    font-family: 'Courier New', Courier, monospace;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 button:hover {
-    background-color: #ff4081; /* Lighter pink on hover */
+    background-color: #ff4081;
 }
 
+/* Update the question input area to be larger */
 input, textarea {
     background-color: #424242;
-    border: 2px solid #e91e63; /* Bold border, same as feedback items */
-    border-radius: 8px; /* Rounded corners */
-    color: #f8f8f8; /* Brighter input text */
-    font-size: 22px; /* Slightly larger text */
-    font-weight: bold; /* Make input text bolder */
+    border: 2px solid #e91e63;
+    border-radius: 8px;
+    color: #f8f8f8;
+    font-size: 22px;
+    font-weight: bold;
     padding: 12px;
     margin-bottom: 15px;
     width: 100%;
     box-sizing: border-box;
-    outline: none; /* Remove default outline */
-    text-transform: lowercase; /* Lowercase text in inputs */
-    font-family: 'Courier New', Courier, monospace; /* Monospace font for input text */
-    text-align: center; /* Center the text inside input fields */
+    outline: none;
+    text-transform: lowercase;
+    font-family: 'Courier New', Courier, monospace;
+    text-align: center;
+}
+
+/* Make the textarea for the prediction question larger */
+textarea {
+    height: 6em; /* Adjust to show 3 lines */
 }
 
 input::placeholder, textarea::placeholder {
     color: #b0b0b0;
-    text-transform: lowercase; /* Lowercase placeholder text */
-    font-family: 'Courier New', Courier, monospace; /* Monospace font for placeholder text */
-    text-align: center; /* Center the placeholder text */
-}
-
-textarea {
-    height: 9em; /* Textarea 3x larger than the title field */
+    text-transform: lowercase;
+    font-family: 'Courier New', Courier, monospace;
+    text-align: center;
 }
 
 input:focus, textarea:focus {
-    border-color: #ff4081; /* Change border color when focused */
+    border-color: #ff4081;
 }
 
 .feedback-item {
-    border: 2px solid #e91e63; /* Border width matches input fields */
+    border: 2px solid #e91e63;
     margin-bottom: 20px;
     padding: 20px;
     background-color: #333;
-    border-radius: 8px; /* Rounded corners */
-    text-align: center; /* Center the text inside feedback items */
+    border-radius: 8px;
+    text-align: center;
 }
 
 .feedback-item-title {
-    font-size: 28.8px; /* 20% larger than previous 24px */
-    font-weight: bold; /* Make the title bold */
+    font-size: 28.8px;
+    font-weight: bold;
     color: white;
     margin-bottom: 10px;
-    text-transform: lowercase; /* Keep the titles lowercase */
-    text-align: center; /* Center the title text */
+    text-transform: lowercase;
+    text-align: center;
 }
 
 .feedback-item-text {
     font-size: 18px;
     color: #b0b0b0;
     margin-bottom: 10px;
-    text-align: center; /* Center the feedback text */
+    text-align: center;
 }
 
 .feedback-form {
-    border: 2px solid #e91e63; /* Border width matches input fields */
+    border: 2px solid #e91e63;
     padding: 30px;
     background-color: #333;
-    border-radius: 8px; /* Rounded corners */
+    border-radius: 8px;
     margin-bottom: 30px;
-    width: 100%; /* Ensure form takes full width */
-    max-width: 600px; /* Limit max width for form */
-    margin: 0 auto; /* Center the form */
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
 }
